@@ -8,3 +8,6 @@ env.read_env()
 TOKEN = env.str("BOT_TOKEN")  # Bot toekn
 ADMINS = env.list("ADMINS")  # adminlar ro'yxati
 IP = env.str("ip")  # Xosting ip manzili
+
+print(ADMINS)
+CHANNEL_ID = "@oqiladigan_kitoblar"

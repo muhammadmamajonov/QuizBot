@@ -2,11 +2,11 @@ import sys
 import asyncio
 import logging
 from loader import bot, dp
-import handlers, filters, keyboards, middlewares, states
-
+import handlers, filters, keyboards, states, data
+from utils import set_bot_commands
 
 async def main() -> None:
-    
+    await set_bot_commands.set_defaoul_commands(bot)
     # the run events dispatching
     await dp.start_polling(bot)
 
