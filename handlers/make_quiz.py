@@ -1,7 +1,7 @@
 from states import Quiz
 from loader import dp, bot
 from aiogram import types, F
-from data.config import CHANNEL_ID, ADMINS
+from config import CHANNEL_ID, ADMINS
 from aiogram.fsm.context import FSMContext
 from aiogram.filters.command import Command
 from keyboards.inline import make_options_keyboard
@@ -10,10 +10,9 @@ from keyboards.defaoult import cancel_keyboard, done_cancel_keyboard
 
 @dp.message(Command('quiz'))
 async def message_handler(message: types.Message, state: FSMContext) -> None:
-    print(ADMINS, )
+  
     if str(message.from_user.id) in ADMINS:
         await state.set_state(Quiz.question)
-        print(await state.get_state())
         await message.answer("Savolni yuboring.", reply_markup=cancel_keyboard)
     else:
         await message.answer("Sizga ruxsat yo'q")
@@ -45,7 +44,7 @@ async def get_question(message: types.Message, state: FSMContext):
 async def get_option(message: types.Message, state: FSMContext):
     data = await state.get_data()
     options = data['options']
-    options.append(message.text)
+    options.append(message.text+" 0")
     await state.update_data(options=options)
 
 

@@ -1,8 +1,10 @@
 import sys
 import asyncio
 import logging
+import keyboards, states
 from loader import bot, dp
-import handlers, filters, keyboards, states, data
+from handlers.make_quiz import *
+from handlers.answer_quiz import *
 from utils import set_bot_commands
 
 async def main() -> None:

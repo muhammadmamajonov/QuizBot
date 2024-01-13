@@ -1,5 +1,5 @@
 
-from data import config
+import config
 from aiogram.enums import ParseMode
 from aiogram import Bot, Dispatcher
 
